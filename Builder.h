@@ -1,13 +1,12 @@
 #pragma once
 #include <string>
-#include "FactoryUnit.hpp"
-#include "FactoryGroundTroops.h"
-#include "FactoryEngineeringTroops.h"
-#include "FactoryMedic.h"
 #include "CivilUnit.h"
 #include "GroundTroops.h"
 #include "Medic.h"
 #include "Player.h"
+
+template<typename T>
+class Factory;
 
 
 
@@ -17,8 +16,11 @@ public:
 	Builder(int, bool, Cell*, Player*);
 	~Builder();
 
-	template<class T>
-	typename Factory<T>* buildAFactory() const;
+
+	template<typename T>
+	Factory<T>* buildAFactory() const;
+
+	//void  buildAFactory() const;
 
 	static Unit::Bonus bonus;
 	virtual std::string toString() override;

@@ -3,12 +3,6 @@
 #include <iostream>
 #include "Player.h"
 
-//Unit::Unit():health(100),damage(25),cell()
-//{
-//	std::cout << "Unit::Unit()" << std::endl;
-//
-//}
-
 
 Unit::Unit(int health, bool defense, Cell* cell2, Player* player):  health(health), defense(defense), cell(cell2), player(player)
 {
@@ -27,7 +21,6 @@ std::string Unit::toString()
 	std::string result = "";
 	result = "<health>" + std::to_string(health);
 	result += "<defence>" + std::to_string(defense);
-	//result += "\n";
 	return result;
 };
 

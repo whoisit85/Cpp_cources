@@ -2,16 +2,15 @@
 #include "Builder.h"
 #include <string>
 #include <iostream>
-#include "getDepartment.h"
+//#include "getDepartment.h"
 #include "GroundTroops.h"
+#include "Cell.h"
+#include "BuildAFactory.hpp"
 
 int main(int argv, char* argc[])
 {
 	
-	
-	
 	std::string unitType1 = "infantry";   //��������� �������� ��� �������
-	Factory <MilitaryUnit> factory1;
 	Cell cell(Cell::field);
 	Cell* ptrCell = &cell;
 
@@ -19,22 +18,28 @@ int main(int argv, char* argc[])
 	std::string factoryType2 = "engineeringTroops";
 
 	std::string unitType3 = "builder";
+	Player player1;
+	
+	Builder* builder = new Builder(100, false, ptrCell, &player1);
+	
+	builder->buildAFactory<Builder>();
+	builder->buildAFactory<Medic>();
 
-	Builder* builder = new Builder(100, 0, ptrCell);
+	
 	//factory1.addDepartment(getDepartment(factoryType, builder));
-	Factory<Builder>* factory=getDepartment<Builder>(builder);
+	//Factory<Builder>* factory=getDepartment<Builder>(builder);
 	//factory->getUnit(unitType1, 100, 25, 0, ptrCell);
 
 	//factory1.addDepartment(getDepartment(unitType1));
-	Builder* unit1 = factory->getUnit(unitType3, 100, 25, 0, ptrCell);
-	Factory<GroundTroops>* factory3 = unit1->buildAFactory<GroundTroops>();
-	Factory<Builder> factory2;
+	//Builder* unit1 = factory->getUnit(unitType3, 100, 25, 0, ptrCell);
+	//Factory<GroundTroops>* factory3 = unit1->buildAFactory<GroundTroops>();
+	//Factory<Builder> factory2;
 	//factory1.addDepartment(getDepartment(factoryType2, builder));
-	Builder* unitBuilder = factory2.getUnit(unitType3, 100, 0, 0, ptrCell);
+	//Builder* unitBuilder = factory2.getUnit(unitType3, 100, 0, 0, ptrCell);
 	//Builder* b = &unitBuilder;
-	std::string unitType4 = "medic";
-	Factory<Medic>* factory4 = getDepartment<Medic>(builder);
-	Medic* unitM = factory4->getUnit(unitType4, 100, 0, 0, ptrCell);
+	//std::string unitType4 = "medic";
+	//Factory<Medic>* factory4 = getDepartment<Medic>(builder);
+	//Medic* unitM = factory4->getUnit(unitType4, 100, 0, 0, ptrCell);
 	
 
 	//std::string unitType2 = "cavalry";   //��������� �������� ��� �������

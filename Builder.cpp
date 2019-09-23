@@ -1,7 +1,5 @@
 #include "Builder.h"
 #include <iostream>
-#include "FactoryUnit.hpp"
-#include "FactoryEngineeringTroops.h"
 
 
 Builder::Builder(int unitHelth, bool defense, Cell* cell, Player* player) : CivilUnit(unitHelth, defense, cell, player)
@@ -13,31 +11,33 @@ Builder::~Builder()
 {
 }
 
-template<typename T>
-Factory<T>* Builder::buildAFactory() const
-{
-	Factory<T>* newFactory = new Factory<T>();
-	return newFactory;
-}
 
-template<>
-Factory<GroundTroops>* Builder::buildAFactory() const
-{
-	return (new Factory<GroundTroops>());
-}
 
-template<>
-Factory<Builder>* Builder::buildAFactory() const
-{
-	return (new Factory<Builder>());
-}
-
-template<>
-Factory<Medic>* Builder::buildAFactory() const
-{
-	return (new Factory<Medic>());
-}
-
+//template<typename T>
+//Factory<T>*  Builder::buildAFactory() const
+//{
+//	Factory<T>* newfactory = new Factory<T>();
+//	return newfactory;
+//}
+//
+//template<>
+//Factory<GroundTroops>* Builder::buildAFactory<GroundTroops>() const
+//{
+//	return (new Factory<GroundTroops>());
+//}
+//
+//template<>
+//Factory<Builder>* Builder::buildAFactory<Builder>() const
+//{
+//	return (new Factory<Builder>());
+//}
+//
+//template<>
+//Factory<Medic>* Builder::buildAFactory<Medic>() const
+//{
+//	return (new Factory<Medic>());
+//}
+//
 
 Unit::Bonus Builder::bonus =
 {
@@ -55,6 +55,7 @@ Unit::Bonus Builder::bonus =
 	{Cell::Landscape::mount,15}
 	}
 };
+
 
 std::string Builder::toString()
 {

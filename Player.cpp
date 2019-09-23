@@ -1,5 +1,7 @@
 #include "Player.h"
 
+unsigned int Player::id;
+
 Player::Player()
 {
 }

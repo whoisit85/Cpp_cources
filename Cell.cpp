@@ -18,7 +18,7 @@ Cell::~Cell() {}
 std::string Cell::toString()
 {
 	std::string result = "Cell: coorditates x,y";
-	//TODO kuku 
+	//TODO
 	return result;
 }
 ;

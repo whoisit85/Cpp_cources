@@ -1,8 +1,6 @@
 #pragma once
 #include <string>
 #include <deque>
-#include "Builder.h"
-#include "FactoryUnit.hpp"
 #include "GameObject.h"
 
 class Player : public GameObject
