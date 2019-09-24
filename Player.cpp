@@ -29,3 +29,14 @@ std::string Player::toString()
 
 	return result;
 }
+
+void Player::addGameObject(GameObject* obj)
+{
+	this->gameObjects.push_back(obj);
+	return;
+}
+
+std::deque<GameObject*> Player::getGameObjects()
+{
+	return this->gameObjects;
+}

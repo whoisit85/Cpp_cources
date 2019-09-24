@@ -6,6 +6,7 @@
 #include "GroundTroops.h"
 #include "Cell.h"
 #include "BuildAFactory.hpp"
+#include "Game.h"
 
 int main(int argv, char* argc[])
 {
@@ -19,6 +20,7 @@ int main(int argv, char* argc[])
 
 	std::string unitType3 = "builder";
 	Player player1;
+	
 	
 	Builder* builder = new Builder(100, false, ptrCell, &player1);
 	
@@ -57,5 +59,8 @@ int main(int argv, char* argc[])
 	// use unit there
 	//delete unit1;
 	//delete unit2;
+	Game game; 
+	game.addPlayer(&player1);
+	game.saveGametoFile();
 	return 0;
 }
