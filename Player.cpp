@@ -4,6 +4,7 @@ unsigned int Player::id;
 
 Player::Player()
 {
+	++id;
 }
 
 Player::~Player()
@@ -22,10 +23,8 @@ std::string Player::toString()
 	std::string units = "";
 	for (size_t i = 0; i < gameObjects.size(); i++)
 	{
-		units = gameObjects.at(i)->toString();
+		result += gameObjects.at(i)->toString();
 	}
-	//std::deque <GameObject*> gameObjects;
-	result = result + units;
 
 	return result;
 }

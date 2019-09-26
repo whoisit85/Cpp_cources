@@ -9,7 +9,7 @@
 
 void Game::addPlayer(Player* player)
 {
-	this->addPlayer(player);
+	this->players.push_back(player);
 	return;
 }
 
@@ -17,7 +17,7 @@ void Game::saveGametoFile(/*std::string fileName = SAVE_FILE_NAME*/ )
 {
 
 	std::string file = SAVE_FILE_NAME;
-	file +=  ".txt";
+	file +=  ".json";
 	
 	/*auto t = std::time(nullptr);
 	struct tm * timeinfo;
@@ -34,11 +34,12 @@ void Game::saveGametoFile(/*std::string fileName = SAVE_FILE_NAME*/ )
 		{
 			Player* player = this->players.at(i);
 			fileStream << player->toString();
-			std::deque <GameObject*> playerObjects = player->getGameObjects();
+			/*std::deque <GameObject*> playerObjects = player->getGameObjects();
 			for (size_t k = 0; k < playerObjects.size(); k++)
 			{
 				fileStream << playerObjects.at(k)->toString();
 			}
+			*/
 		}
 	}
 	fileStream.close();

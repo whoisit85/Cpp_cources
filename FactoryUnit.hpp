@@ -13,7 +13,8 @@ template <typename T>
 class Factory : public GameObject
 {
 public:
-	Factory()
+	Cell* cell;
+	Factory(Cell* cell) : cell(cell)
 	{
 		std::cout << "Factory::Factory()" << std::endl;
 	}
@@ -21,7 +22,6 @@ public:
 	~Factory()
 	{
 		std::cout << "Factory::~Factory()" << std::endl;
-		//std::for_each(departments.begin(), departments.end(), [](Factory * factory) { delete factory; });
 	}
 
 	T* getUnit(const std::string& unitType, int health, int damage, bool defense, Cell* cell, Player* player)
@@ -30,14 +30,22 @@ public:
 		player->addGameObject(unit);
 		return unit;
 	}
-	
+	std::string toString() override
+	{
+		std::string result = "<Factory{T}>";
+		result += "<Cell>";
+		result += this->cell->toString();
+		result += "\n";
+		return result;
+	};
 };
 
 	template<>
-	class Factory <Builder> // : public GameObject
+	class Factory <Builder>  : public GameObject
 	{
 	public:
-		Factory()
+		Cell* cell;
+		Factory(Cell * cell) : cell(cell)
 		{
 			std::cout << "FactoryEngineeringTroops()" << std::endl;
 		}
@@ -51,15 +59,26 @@ public:
 			CreationBuilder creationBuilder;
 			
 			if (unitType == "builder") { unit = creationBuilder.creationBuilder(health, defense, cell, player); }
-	
+			//player->addGameObject(unit);
 			return unit;
 		}
+
+		std::string toString() override
+		{
+			std::string result = "<Factory{Builder}>";
+			result += "<Cell>";
+			result += this->cell->toString();
+			result += "\n";
+			return result;
+		};
+
 	};
 		template<>
-		class Factory<MilitaryUnit> //: public GameObject
+		class Factory<MilitaryUnit> : public GameObject
 		{
 		public:
-			Factory() { std::cout << "Factory<MilitaryUnit>::Factory()" << std::endl; };
+			Cell* cell;
+			Factory(Cell* cell) : cell(cell) { std::cout << "Factory<MilitaryUnit>::Factory()" << std::endl; };
 			~Factory() { std::cout << "~Factory<MilitaryUnit>::Factory()" << std::endl; };
 			MilitaryUnit* getUnit(const std::string& unitType, int health, int damage, bool defense, Cell* cell, Player* player)
 			{
@@ -68,14 +87,24 @@ public:
 				if (unitType == "cavalry") { unit = new Cavalry(health, damage, defense, cell, player); }
 				player->addGameObject(unit);
 				return unit;
+			}
+			std::string toString() override
+			{
+				std::string result = "<Factory{MilitaryUnit}>";
+				result += "<Cell>";
+				result += this->cell->toString();
+				result += "\n";
+				return result;
 			};
+
 		};
 
 		template<>
-		class Factory<Medic> //: public GameObject
+		class Factory<Medic> : public GameObject
 		{
 		public:
-			Factory() { std::cout << "Factory<MilitaryUnit>::Factory()" << std::endl; };
+			Cell* cell;
+			Factory(Cell* cell) : cell(cell) { std::cout << "Factory<MilitaryUnit>::Factory()" << std::endl; };
 			~Factory() { std::cout << "~Factory<MilitaryUnit>::Factory()" << std::endl; };
 			Medic* getUnit(const std::string& unitType, int health, int damage, bool defense, Cell* cell, Player* player)
 			{
@@ -84,5 +113,14 @@ public:
 				player->addGameObject(unit);
 				return unit;
 			}
+			std::string toString() override
+			{
+				std::string result = "<Factory{Medic}>";
+				result += "<Cell>";
+				result += this->cell->toString();
+				result += "\n";
+				return result;
+			};
+
 		};
 
