@@ -32,8 +32,8 @@ public:
 	}
 	std::string toString() override
 	{
-		std::string result = "<Factory{T}>";
-		result += "<Cell>";
+		std::string result = "Factory{T},";
+		result += "Cell,";
 		result += this->cell->toString();
 		result += "\n";
 		return result;
@@ -65,8 +65,8 @@ public:
 
 		std::string toString() override
 		{
-			std::string result = "<Factory{Builder}>";
-			result += "<Cell>";
+			std::string result = "Factory{Builder},";
+			result += "Cell,";
 			result += this->cell->toString();
 			result += "\n";
 			return result;
@@ -90,8 +90,8 @@ public:
 			}
 			std::string toString() override
 			{
-				std::string result = "<Factory{MilitaryUnit}>";
-				result += "<Cell>";
+				std::string result = "Factory{MilitaryUnit},";
+				result += "Cell,";
 				result += this->cell->toString();
 				result += "\n";
 				return result;
@@ -115,8 +115,8 @@ public:
 			}
 			std::string toString() override
 			{
-				std::string result = "<Factory{Medic}>";
-				result += "<Cell>";
+				std::string result = "Factory{Medic},";
+				result += "Cell,";
 				result += this->cell->toString();
 				result += "\n";
 				return result;

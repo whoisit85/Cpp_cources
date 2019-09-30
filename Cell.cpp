@@ -19,9 +19,7 @@ Cell::~Cell() {}
 std::string Cell::landscapeToString(Cell::Landscape land) 
 {
 
-	std::cout << "KUKU1";
 	std::string result = "";
-	std::cout << "KUKU2";
 	switch (land)
 	{
 	case 0:
@@ -55,15 +53,15 @@ std::string Cell::landscapeToString(Cell::Landscape land)
 		break;
 	}
 	};
-	std::cout << "KUKU3";
 	return result;
 }
 
 std::string Cell::toString()
 {
-	std::string result = "Cell: Landscape:";
+	std::string result = "Landscape,";
 	result += landscapeToString(this->getLandscape());
-	result += " point:";
+	result += ",";
+	result += "point,";
 	result += std::to_string(point.x);
 	result += ",";
 	result += std::to_string(point.y);

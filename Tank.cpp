@@ -36,11 +36,11 @@ Unit::Bonus Tank::bonus =
 
 std::string Tank::toString()
 {
-	std::string result = "<Tank>";
+	std::string result = "Tank,";
 	result += Unit::toString();
-	result += "<Cell>";
+	result += "Cell,";
 	result += this->cell->toString();
-	result += "<damage>";
+	result += "damage,";
 	result += std::to_string(this->damage);
 	result += "\n";
 	return result;

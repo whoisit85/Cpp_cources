@@ -15,6 +15,7 @@ public:
 	//skipTurn();
 	void addGameObject(GameObject* );
 	std::deque <GameObject*> getGameObjects();
+	void setPlayerID(unsigned int);
 
 private:
 	std::deque <GameObject*> gameObjects;

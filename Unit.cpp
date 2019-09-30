@@ -19,8 +19,10 @@ bool Unit::getDefense()const { return defense; }
 std::string Unit::toString()
 {
 	std::string result = "";
-	result = "<health>" + std::to_string(health);
-	result += "<defence>" + std::to_string(defense);
+	result = "health," + std::to_string(health);
+	result += ",";
+	result += "defence," + std::to_string(defense);
+	result += ",";
 	return result;
 };
 

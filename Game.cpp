@@ -1,9 +1,12 @@
 #include "Game.h"
 #include <deque>
+#include <vector>
 #include <iostream>
+//#include <fstream>
 #include <iomanip>
 #include <sstream>
 #include <chrono>
+#include "Player.h"
 
 std::string currentTimeToString()
 {
@@ -12,9 +15,10 @@ std::string currentTimeToString()
 	std::tm  buffer;
 	localtime_s(&buffer, &inTime);
 	std::string result = "";
-	result += std::to_string(buffer.tm_year + 1900) + "." + std::to_string(buffer.tm_mon + 1) + "." + std::to_string(buffer.tm_mday) + "_" + std::to_string(buffer.tm_hour) + ":" + std::to_string(buffer.tm_min);
+	result += std::to_string(buffer.tm_year + 1900) + "." + std::to_string(buffer.tm_mon + 1) + "." + std::to_string(buffer.tm_mday) + "_" + std::to_string(buffer.tm_hour) + "_" + std::to_string(buffer.tm_min);
 	return result;
 }
+
 
 void Game::addPlayer(Player* player)
 {
@@ -26,8 +30,9 @@ void Game::saveGametoFile(/*std::string fileName = SAVE_FILE_NAME*/ )
 {
 
 	std::string file = SAVE_FILE_NAME;
-	std::string fileName = "";
-	std::cout << "Enter file name for save: ";
+	std::string fileName = file;
+//	std::string fileName = "";
+/*	std::cout << "Enter file name for save: ";
 	std::getline(std::cin, fileName);
 	if(fileName.empty())
 	{
@@ -44,7 +49,9 @@ void Game::saveGametoFile(/*std::string fileName = SAVE_FILE_NAME*/ )
 	if (choice)
 	{
 		fileName = currentTimeToString()+ fileName;
+		std::cout << "PROPOSED FILE NAME = " << fileName;
 	}
+	*/
 	//////////////////////////////////////////////////
 
 	std::ofstream fileStream (fileName);
@@ -54,15 +61,61 @@ void Game::saveGametoFile(/*std::string fileName = SAVE_FILE_NAME*/ )
 		{
 			Player* player = this->players.at(i);
 			fileStream << player->toString();
-			/*std::deque <GameObject*> playerObjects = player->getGameObjects();
-			for (size_t k = 0; k < playerObjects.size(); k++)
-			{
-				fileStream << playerObjects.at(k)->toString();
-			}
-			*/
 		}
 	}
 	fileStream.close();
 	return;
 }
 
+void Game::loadGame(std::string fileName)
+{
+	std::ifstream file(fileName);
+	std::string buffer;
+
+	if (file.is_open()) 
+	{
+		std::cout << "READ FROM FILE: " << fileName << std::endl;
+		while (std::getline(file, buffer/*, ',' */)) 
+		{
+			//std::cout << buffer << std::endl;
+			parseObjectFromString(buffer);
+		}
+	}
+	file.close();
+}
+
+
+Player* Game::parseObjectFromString(std::string string)
+{
+	Player * player = nullptr;
+	std::vector <std::string> tokens;
+	char delim = ',';
+	size_t start = 0;
+	size_t end = 0;
+	while ((start = string.find_first_not_of(delim, end))!= std::string::npos)
+	{
+		end = string.find(delim, start);
+		tokens.push_back(string.substr(start, end - start));
+	}
+	/*for (size_t i = 0; i < tokens.size(); i++)
+	{
+
+		std::cout << tokens.at(i) << std::endl;
+	}*/
+	GameObject * gameObject = createObject(tokens);
+
+	return player;
+}
+
+GameObject* Game::createObject(std::vector<std::string>& tok)
+{
+	GameObject* gameObject = nullptr;
+	if (strcmp("Player", tok[0].c_str())) 
+	{
+		Player* player = new Player();
+		player->setPlayerID(atoi(tok[1].c_str()));
+	}
+
+
+	return gameObject;
+}

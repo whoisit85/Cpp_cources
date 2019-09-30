@@ -38,9 +38,9 @@ Unit::Bonus Medic::bonus =
 
 std::string Medic::toString()
 {
-	std::string result = "<Medic>";
+	std::string result = "Medic,";
 	result += Unit::toString();
-	result += "<Cell>";
+	result += "Cell,";
 	result += this->cell -> toString();
 	result += "\n";
 	return result;

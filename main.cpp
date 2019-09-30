@@ -67,5 +67,8 @@ int main(int argv, char* argc[])
 
 	
 	game.saveGametoFile();
+
+	game.loadGame("game.txt");
+
 	return 0;
 }

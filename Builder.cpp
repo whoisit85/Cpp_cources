@@ -33,9 +33,9 @@ Unit::Bonus Builder::bonus =
 
 std::string Builder::toString()
 {
-	std::string result = "<Builder>";
+	std::string result = "Builder,";
 	result += Unit::toString();
-	result += "<Cell>";
+	result += "Cell,";
 	result += this->cell->toString();
 	result += "\n";
 	return result;

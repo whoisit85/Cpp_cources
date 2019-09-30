@@ -24,11 +24,11 @@ Unit::Bonus Cavalry::bonus =
 
 std::string Cavalry::toString()
 {
-	std::string result = "<Cavalry>";
+	std::string result = "Cavalry,";
 	result += Unit::toString();
-	result += "<Cell>";
+	result += "Cell,";
 	result += this->cell->toString();
-	result += "<damage>";
+	result += "damage,";
 	result += std::to_string(this->damage);
 	result += "\n";
 	return result;

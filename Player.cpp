@@ -18,13 +18,15 @@ unsigned int Player::getPlayerID()
 
 std::string Player::toString()
 {
-	std::string result = "<PlayerID>" + std::to_string(id);
-	result += "<PlayerUnits>";
+	std::string result = "PlayerID," + std::to_string(id);
+	//result += "<PlayerUnits>";
+	result += "\n";
 	std::string units = "";
 	for (size_t i = 0; i < gameObjects.size(); i++)
 	{
 		result += gameObjects.at(i)->toString();
 	}
+
 
 	return result;
 }
@@ -38,4 +40,9 @@ void Player::addGameObject(GameObject* obj)
 std::deque<GameObject*> Player::getGameObjects()
 {
 	return this->gameObjects;
+}
+
+void Player::setPlayerID(unsigned int newID)
+{
+	id = newID;
 }
