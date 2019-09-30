@@ -18,6 +18,41 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BuildAFactory.hpp" />
+    <ClInclude Include="Builder.h" />
+    <ClInclude Include="Cavalry.h" />
+    <ClInclude Include="Cell.h" />
+    <ClInclude Include="CivilUnit.h" />
+    <ClInclude Include="CreationtBuilder.h" />
+    <ClInclude Include="FactoryUnit.hpp" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GroundTroops.h" />
+    <ClInclude Include="Infantry.h" />
+    <ClInclude Include="Medic.h" />
+    <ClInclude Include="MilitaryUnit.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Tank.h" />
+    <ClInclude Include="Unit.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Builder.cpp" />
+    <ClCompile Include="Cavalry.cpp" />
+    <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="CivilUnit.cpp" />
+    <ClCompile Include="CreationtBuilder.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GroundTroops.cpp" />
+    <ClCompile Include="Infantry.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Medic.cpp" />
+    <ClCompile Include="MilitaryUnit.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Tank.cpp" />
+    <ClCompile Include="Unit.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{536BFB0F-A6F0-4B6C-B925-E428D3C84B32}</ProjectGuid>
@@ -124,40 +159,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="BonusAttack.h" />
-    <ClInclude Include="BuildAFactory.hpp" />
-    <ClInclude Include="Builder.h" />
-    <ClInclude Include="Cavalry.h" />
-    <ClInclude Include="Cell.h" />
-    <ClInclude Include="CivilUnit.h" />
-    <ClInclude Include="CreationtBuilder.h" />
-    <ClInclude Include="FactoryUnit.hpp" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GroundTroops.h" />
-    <ClInclude Include="Infantry.h" />
-    <ClInclude Include="Medic.h" />
-    <ClInclude Include="MilitaryUnit.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Tank.h" />
-    <ClInclude Include="Unit.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Builder.cpp" />
-    <ClCompile Include="Cavalry.cpp" />
-    <ClCompile Include="Cell.cpp" />
-    <ClCompile Include="CivilUnit.cpp" />
-    <ClCompile Include="CreationtBuilder.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GroundTroops.cpp" />
-    <ClCompile Include="Infantry.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Medic.cpp" />
-    <ClCompile Include="MilitaryUnit.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Tank.cpp" />
-    <ClCompile Include="Unit.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

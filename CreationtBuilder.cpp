@@ -4,5 +4,8 @@
 
 Builder* CreationBuilder::creationBuilder(int health, bool defense, Cell* cell, Player* player)
 {
-	return new Builder(health, defense, cell, player);
+	Builder* builder = new Builder(health, defense, cell, player);
+
+	player->addGameObject(builder);
+	return builder;
 }

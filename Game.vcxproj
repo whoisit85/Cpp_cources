@@ -129,10 +129,9 @@
     <ClInclude Include="Cavalry.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="CivilUnit.h" />
-    <ClInclude Include="FactoryEngineeringTroops.h" />
-    <ClInclude Include="FactoryGroundTroops.h" />
-    <ClInclude Include="FactoryMedic.h" />
+    <ClInclude Include="CreationtBuilder.h" />
     <ClInclude Include="FactoryUnit.hpp" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="getDepartment.h" />
     <ClInclude Include="GroundTroops.h" />
@@ -148,8 +147,8 @@
     <ClCompile Include="Cavalry.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="CivilUnit.cpp" />
-    <ClCompile Include="FactoryGroundTroops.cpp" />
-    <ClCompile Include="FactoryMedic.cpp" />
+    <ClCompile Include="CreationtBuilder.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GroundTroops.cpp" />
     <ClCompile Include="Infantry.cpp" />

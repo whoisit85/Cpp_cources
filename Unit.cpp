@@ -8,7 +8,7 @@ Unit::Unit(int health, bool defense, Cell* cell2, Player* player):  health(healt
 {
 }
 
-Unit::Unit(const Unit& unit) : health(unit.health), defense(unit.defense), cell(unit.cell)
+Unit::Unit(const Unit& unit) : health(unit.health), defense(unit.defense), cell(unit.cell), player (unit.player)
 {
 	std::cout << "Unit::Unit(const Unit& unit)" << std::endl;
 };

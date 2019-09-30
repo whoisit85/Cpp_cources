@@ -30,15 +30,6 @@
     <ClInclude Include="CivilUnit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FactoryEngineeringTroops.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FactoryGroundTroops.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FactoryMedic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FactoryUnit.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -69,6 +60,12 @@
     <ClInclude Include="GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CreationtBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Builder.cpp">
@@ -81,12 +78,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CivilUnit.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FactoryGroundTroops.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FactoryMedic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GroundTroops.cpp">
@@ -114,6 +105,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreationtBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

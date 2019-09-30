@@ -6,24 +6,31 @@
 #include "GroundTroops.h"
 #include "Cell.h"
 #include "BuildAFactory.hpp"
+#include "Game.h"
+#include "CreationtBuilder.h"
 
 int main(int argv, char* argc[])
 {
-	
+	Game game;
+	Player player1;
+	game.addPlayer(&player1);
+
 	std::string unitType1 = "infantry";   //��������� �������� ��� �������
-	Cell cell(Cell::field);
+	Cell cell(Cell::field, { 1, 1 });
 	Cell* ptrCell = &cell;
 
 	std::string factoryType = "groundTroops";   
 	std::string factoryType2 = "engineeringTroops";
 
 	std::string unitType3 = "builder";
-	Player player1;
+
+	CreationBuilder crB;
+	Builder* builder = crB.creationBuilder(100, false, ptrCell, &player1); //int health, bool defense, Cell* cell, Player* player
 	
-	Builder* builder = new Builder(100, false, ptrCell, &player1);
 	
-	builder->buildAFactory<Builder>();
+	Factory<Builder> * fac = builder->buildAFactory<Builder>();
 	builder->buildAFactory<Medic>();
+	fac->getUnit(unitType3, 32, 88, true, ptrCell, &player1);
 
 	
 	//factory1.addDepartment(getDepartment(factoryType, builder));
@@ -57,5 +64,8 @@ int main(int argv, char* argc[])
 	// use unit there
 	//delete unit1;
 	//delete unit2;
+
+	
+	game.saveGametoFile();
 	return 0;
 }

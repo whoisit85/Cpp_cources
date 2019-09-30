@@ -13,32 +13,6 @@ Builder::~Builder()
 
 
 
-//template<typename T>
-//Factory<T>*  Builder::buildAFactory() const
-//{
-//	Factory<T>* newfactory = new Factory<T>();
-//	return newfactory;
-//}
-//
-//template<>
-//Factory<GroundTroops>* Builder::buildAFactory<GroundTroops>() const
-//{
-//	return (new Factory<GroundTroops>());
-//}
-//
-//template<>
-//Factory<Builder>* Builder::buildAFactory<Builder>() const
-//{
-//	return (new Factory<Builder>());
-//}
-//
-//template<>
-//Factory<Medic>* Builder::buildAFactory<Medic>() const
-//{
-//	return (new Factory<Medic>());
-//}
-//
-
 Unit::Bonus Builder::bonus =
 {
 	{

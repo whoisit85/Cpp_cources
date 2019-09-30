@@ -13,6 +13,9 @@ public:
 	std::string toString() override;
 	//makeMove();
 	//skipTurn();
+	void addGameObject(GameObject* );
+	std::deque <GameObject*> getGameObjects();
+
 private:
 	std::deque <GameObject*> gameObjects;
 
