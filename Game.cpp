@@ -3,9 +3,18 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
-#include <ctime>
+#include <chrono>
 
-
+std::string currentTimeToString()
+{
+	auto rawtime = std::chrono::system_clock::now();
+	auto inTime = std::chrono::system_clock::to_time_t(rawtime);
+	std::tm  buffer;
+	localtime_s(&buffer, &inTime);
+	std::string result = "";
+	result += std::to_string(buffer.tm_year + 1900) + "." + std::to_string(buffer.tm_mon + 1) + "." + std::to_string(buffer.tm_mday) + "_" + std::to_string(buffer.tm_hour) + ":" + std::to_string(buffer.tm_min);
+	return result;
+}
 
 void Game::addPlayer(Player* player)
 {
@@ -17,17 +26,28 @@ void Game::saveGametoFile(/*std::string fileName = SAVE_FILE_NAME*/ )
 {
 
 	std::string file = SAVE_FILE_NAME;
-	file +=  ".json";
+	std::string fileName = "";
+	std::cout << "Enter file name for save: ";
+	std::getline(std::cin, fileName);
+	if(fileName.empty())
+	{
+		fileName = file;
+	}
+	else 
+	{
+		fileName += ".txt";
+	}
 	
-	/*auto t = std::time(nullptr);
-	struct tm * timeinfo;
-	auto tm = localtime_s(timeinfo, &t);
-	std::ostringstream oss;
-	oss << std::put_time(tm, "%Y-%m-%d_%H-%M-%S");
-	file += oss.str();
-	*/
+	std::cout << "Add current time?   Yes (enter 1): ";
+	int choice = 0;
+	std::cin >> choice;
+	if (choice)
+	{
+		fileName = currentTimeToString()+ fileName;
+	}
+	//////////////////////////////////////////////////
 
-	std::ofstream fileStream (file);
+	std::ofstream fileStream (fileName);
 	if (fileStream.is_open()) 
 	{
 		for (size_t i = 0; i < this->players.size(); i++)
@@ -45,3 +65,4 @@ void Game::saveGametoFile(/*std::string fileName = SAVE_FILE_NAME*/ )
 	fileStream.close();
 	return;
 }
+
