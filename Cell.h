@@ -23,6 +23,7 @@ public:
 	void setLandscape(Landscape);
 	virtual ~Cell();
 	std::string landscapeToString(Cell::Landscape);
+	//Cell::Landscape stringToLandscape(std::string);
 	virtual std::string toString() override;
 
 };

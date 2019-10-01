@@ -4,6 +4,9 @@
 #include "Player.h"
 #include "Cell.h"
 #include <fstream>
+#include "Player.h"
+#include "Builder.h"
+
 
 #define SAVE_FILE_NAME "game.txt" 
 //".//savegame//game"
@@ -12,8 +15,9 @@ class Game
 {
 private:
 	std::deque<Player*> players;
-	Player* parseObjectFromString(std::string);
-	GameObject* createObject(std::vector<std::string>& tok);
+	std::vector <std::string>& parseObjectFromString(std::string);
+	std::deque <Player*> createPlayers(std::deque <std::vector<std::string>>& );
+	void createObjectForPlayer(std::deque <std::vector<std::string>>& , Player *);
 
 public:
 	void addPlayer(Player*);

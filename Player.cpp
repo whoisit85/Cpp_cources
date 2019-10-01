@@ -1,10 +1,12 @@
 #include "Player.h"
+#include <iostream>
 
 unsigned int Player::id;
 
 Player::Player()
 {
 	++id;
+	std::cout << "Player()" << id << std::endl;
 }
 
 Player::~Player()

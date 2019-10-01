@@ -26,11 +26,18 @@ int main(int argv, char* argc[])
 
 	CreationBuilder crB;
 	Builder* builder = crB.creationBuilder(100, false, ptrCell, &player1); //int health, bool defense, Cell* cell, Player* player
-	
-	
-	Factory<Builder> * fac = builder->buildAFactory<Builder>();
-	builder->buildAFactory<Medic>();
-	fac->getUnit(unitType3, 32, 88, true, ptrCell, &player1);
+	Builder* builder2 = crB.creationBuilder(100, false, ptrCell, &player1);
+
+	Player player2;
+	game.addPlayer(&player2);
+	Builder* builder3 = crB.creationBuilder(100, false, ptrCell, &player2); //int health, bool defense, Cell* cell, Player* player
+	Builder* builder4 = crB.creationBuilder(100, false, ptrCell, &player2);
+
+
+
+	//Factory<Builder> * fac = builder->buildAFactory<Builder>();
+	//builder->buildAFactory<Medic>();
+	//fac->getUnit(unitType3, 32, 88, true, ptrCell, &player1);
 
 	
 	//factory1.addDepartment(getDepartment(factoryType, builder));

@@ -1,7 +1,7 @@
 #include"Cell.h"
 #include<string>
 #include <iostream>
-//Cell::Cell() :landscape(field) {};
+
 Cell::Cell(Landscape land, Point point) : landscape(land), point(point){};
 
 
@@ -55,6 +55,11 @@ std::string Cell::landscapeToString(Cell::Landscape land)
 	};
 	return result;
 }
+
+//Cell::Landscape Cell::stringToLandscape(std::string)
+//{
+//	return Cell::Landscape();
+//}
 
 std::string Cell::toString()
 {
