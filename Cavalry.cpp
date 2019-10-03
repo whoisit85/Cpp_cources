@@ -28,6 +28,7 @@ std::string Cavalry::toString()
 	result += Unit::toString();
 	result += "Cell,";
 	result += this->cell->toString();
+	result += ",";	
 	result += "damage,";
 	result += std::to_string(this->damage);
 	result += "\n";

@@ -6,8 +6,9 @@
 //	std::cout << "Tank::Tank()" << std::endl;
 //}
 Tank::Tank(int unitHelth, int unitDamage,bool defense, Cell * cell, Player* player) : GroundTroops(unitHelth, unitDamage, defense,cell, player)
-
-{}
+{
+	std::cout << "Tank(int unitHelth, int unitDamage,bool defense, Cell * cell, Player* player)" << std::endl;
+}
 Tank::~Tank()
 {
 	std::cout << "Tank::~Tank()" << std::endl;
@@ -40,6 +41,7 @@ std::string Tank::toString()
 	result += Unit::toString();
 	result += "Cell,";
 	result += this->cell->toString();
+	result += ",";
 	result += "damage,";
 	result += std::to_string(this->damage);
 	result += "\n";

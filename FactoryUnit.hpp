@@ -85,6 +85,7 @@ public:
 				MilitaryUnit* unit = nullptr;
 				if (unitType == "infantry") { unit = new Infantry(health, damage, defense, cell, player); }
 				if (unitType == "cavalry") { unit = new Cavalry(health, damage, defense, cell, player); }
+				if (unitType == "tank") { unit = new Tank(health, damage, defense, cell, player); }
 				player->addGameObject(unit);
 				return unit;
 			}

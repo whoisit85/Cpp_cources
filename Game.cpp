@@ -7,6 +7,7 @@
 #include <sstream>
 #include <chrono>
 #include "CreationtBuilder.h"
+#include"FactoryUnit.hpp"
 
 std::string currentTimeToString()
 {
@@ -85,16 +86,66 @@ std::vector <std::string> & Game::parseObjectFromString(std::string string)
 void Game::createObjectForPlayer(std::deque <std::vector<std::string>>& dek, Player * player) 
 {
 	std::vector <std::string> vec = dek.front();
-	if ("Builder" == vec[0]) 
+	if ( vec[0] == "Builder" )
 	{
 		int health = atoi(vec[2].c_str());
 		bool defence = (vec[4] == "0" ? false : true);
 		Cell* cell = new Cell(Cell::field, { 1, 1 });
 
-		Builder * builder = new Builder(health, defence, cell, player); //Builder,health,100,defence,0,Cell,Landscape,field,point,1,1
+		Builder* unit = new Builder(health, defence, cell, player); //Builder,health,100,defence,0,Cell,Landscape,field,point,1,1
 		dek.pop_front();
 	}
+	else if (vec[0] == "Infantry")
+	{
+		int health = atoi(vec[2].c_str());
+		int damage = atoi(vec[12].c_str());
+		bool defence = (vec[4] == "0" ? false : true);
+		Cell* cell = new Cell(Cell::field, { 1, 1 });
 
+		Infantry* unit = new Infantry(health, damage, defence, cell, player); //Infantry, health, 32, defence, 1, Cell, Landscape, field, point, 1, 1, damage, 88
+
+		dek.pop_front();
+	}
+	else if (vec[0] == "Cavalry")
+	{
+		int health = atoi(vec[2].c_str());
+		int damage = atoi(vec[12].c_str());
+		bool defence = (vec[4] == "0" ? false : true);
+		Cell* cell = new Cell(Cell::field, { 1, 1 });
+
+		Cavalry* unit = new Cavalry(health, damage, defence, cell, player); //Infantry, health, 32, defence, 1, Cell, Landscape, field, point, 1, 1, damage, 88
+
+		dek.pop_front();
+	}
+	else if (vec[0] == "Tank")
+	{
+		int health = atoi(vec[2].c_str());
+		int damage = atoi(vec[12].c_str());
+		bool defence = (vec[4] == "0" ? false : true);
+		Cell* cell = new Cell(Cell::field, { 1, 1 });
+
+		Tank* unit = new Tank(health, damage, defence, cell, player); //Infantry, health, 32, defence, 1, Cell, Landscape, field, point, 1, 1, damage, 88
+
+		dek.pop_front();
+	}
+	else if (vec[0] == "Factory{Builder}")
+	{
+		Cell* cell = new Cell(Cell::field, { 1, 1 });
+		Factory <Builder>* factory = new Factory <Builder>(cell);
+		dek.pop_front();
+	}
+	else if (vec[0] == "Factory{MilitaryUnit}")
+	{
+		Cell* cell = new Cell(Cell::field, { 1, 1 });
+		Factory <MilitaryUnit>* factory = new Factory <MilitaryUnit>(cell);
+		dek.pop_front();
+	}
+	else if (vec[0] == "Factory{Medic}")
+	{
+		Cell* cell = new Cell(Cell::field, { 1, 1 });
+		Factory <Medic>* factory = new Factory <Medic>(cell);
+		dek.pop_front();
+	}
 }
 
 std::deque <Player*> Game::createPlayers(std::deque <std::vector<std::string>>& dek)

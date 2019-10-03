@@ -12,7 +12,7 @@ Infantry::Infantry(GroundTroops& unit):GroundTroops(unit)
 
 Infantry::Infantry(int unitHelth, int unitDamage, bool defense, Cell * cell, Player* player) : GroundTroops(unitHelth, unitDamage,defense, cell, player)
 {
-	std::cout << "Infantry::Infantry(int,int,bool,Cell*, Player *)" << std::endl;
+	std::cout << "Infantry::Infantry(health=" <<unitHelth << ",damage=" << unitDamage << ",defense=" << defense << ",Cell*, Player *)" << std::endl;
 };
 
 Infantry::~Infantry()
@@ -52,6 +52,7 @@ std::string Infantry::toString()
 	result += Unit::toString();
 	result += "Cell,";
 	result += this->cell->toString();
+	result += ",";
 	result += "damage,";
 	result += std::to_string(this->damage);
 	result += "\n";
